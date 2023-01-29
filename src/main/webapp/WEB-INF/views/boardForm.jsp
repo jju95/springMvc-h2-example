@@ -3,8 +3,6 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ tag body-content="empty" pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
-
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -36,7 +34,8 @@
 <div style="text-align: center;">
     <h1>입력 폼</h1>
     <form:form method="post" modelAttribute="board" action="">
-
+    <javatime:parseLocalDateTime value="<%=new java.time.LocalDateTime.%>" pattern="yyyy-mm-dd HH:mm:ss" var="parsedDate" />
+    <form:input path="createDt" type="hidden" value="${parsedDate}"/>
     <table style="width: 700px; margin: auto">
     <thead>
         <th></th>

@@ -27,7 +27,8 @@ public class Board {
     public String content;
 
     @Nullable
-    @JsonFormat(shape = JsonFormat.Shape.STRING , pattern = "yyyy-mm-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING , pattern = "yyyy-mm-dd HH:mm:ss") // response
+    @DateTimeFormat(pattern = "yyyy-mm-dd HH:mm:ss") // request
     public LocalDateTime createDt;
 
     public Long viewCnt;

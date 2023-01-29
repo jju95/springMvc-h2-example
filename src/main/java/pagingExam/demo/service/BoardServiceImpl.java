@@ -27,8 +27,8 @@ public class BoardServiceImpl implements BoardService {
         LocalDateTime currentTime = LocalDateTime.now();
         board.setCreateDt(currentTime);
 
-        log.info("board == {}", board);
+        log.info("board == {}", board.getCreateDt());
 
-        boardMapper.insert(board);
+        //boardMapper.insert(board);
     }
 }
