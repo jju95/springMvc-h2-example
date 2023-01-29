@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="pagingExam.demo.mapper.BoardMapper">
+    <resultMap type="pagingExam.demo.domain.Board" id="board">
+        <id column="boardId" property="boardId"/>
+        <result column="title" property="title"/>
+        <result column="writer" property="writer"/>
+        <result column="content" property="content"/>
+        <result column="create_dt" property="createDt"/>
+        <result column="view_cnt" property="viewCnt"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="board">
+        select
+            *
+        from
+            board
+    </select>
+
+    <insert id="insert" parameterType="pagingExam.demo.domain.Board" >
+        INSERT INTO
+            BOARD(TITLE ,WRITER ,CONTENT ,create_dt, VIEW_CNT)
+        VALUES(#{title},#{writer},#{content}, #{createDt}, 0)
+    </insert>
+
+
+</mapper>
