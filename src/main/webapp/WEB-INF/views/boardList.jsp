@@ -4,6 +4,7 @@
 
 <html>
 <head>
+    <script src="jquery-3.6.1.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>게시판 목록</title>
     <style>
@@ -24,8 +25,15 @@
             text-align: center;
         }
     </style>
+
 </head>
 <body>
+<c:if test="${message ne null}">
+    <script>
+        let message = ${message};
+        alert(message);
+    </script>
+</c:if>
 <div style="text-align: center;">
     <h1>게시판 목록</h1>
     <table style="width: 700px; margin: auto">
@@ -39,17 +47,11 @@
         <c:if test="data eq null" >
             null teståå
         </c:if>
-        <c:forEach var="board" items="${board}">
-            <tr>
-                <td>${board.boardId}</td>
-                <td style="text-align: left"><a href="getBoard?seq=${board.boardId}">${board.title}</a></td>
-                <td>${board.writer}</td>
-                <td>${board.createDate}</td>
-                <td>${board.cnt}</td>
-            </tr>
-        </c:forEach>
+        <c:if test="${list ne null}">
+            <c:out value="${list}"/>
+        </c:if>
     </table>
-    <a href="/boardForm">새글 등록</a>
+    <a href="/board/create">새글 등록</a>
 </div>
 </body>
 </html>

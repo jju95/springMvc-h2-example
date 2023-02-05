@@ -33,9 +33,7 @@
 <body>
 <div style="text-align: center;">
     <h1>입력 폼</h1>
-    <form:form method="post" modelAttribute="board" action="">
-    <javatime:parseLocalDateTime value="<%=new java.time.LocalDateTime.%>" pattern="yyyy-mm-dd HH:mm:ss" var="parsedDate" />
-    <form:input path="createDt" type="hidden" value="${parsedDate}"/>
+    <form:form method="post" modelAttribute="board" action="/board/create" enctype="multipart/form-data">
     <table style="width: 700px; margin: auto">
     <thead>
         <th></th>
@@ -66,6 +64,14 @@
                 <form:textarea path="content" />
             </td>
         </tr>
+        <tr>
+            <td>
+                <span>썸네일</span>
+            </td>
+            <td>
+                <input type="file" name="image" accept="image/png, image/jpeg"/>
+            </td>
+        </tr>
 
         <tr>
             <td colspan="2">
@@ -76,7 +82,7 @@
     </table>
     </form:form>
     <div>
-        <a href="<c:url value="boardList.jsp" />">글 목록으로 돌아가기</a>
+        <a href="/board/list">글 목록으로 돌아가기</a>
     </div>
 </div>
 </body>

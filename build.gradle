@@ -48,6 +48,8 @@ dependencies {
 	implementation 'org.mybatis:mybatis:3.4.5'
 	//
 
+	implementation 'commons-io:commons-io'    /* Apache commons-io */
+	implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4' /* Apache Commons FileUpload */
 
 }
 

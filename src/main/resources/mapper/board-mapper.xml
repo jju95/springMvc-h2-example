@@ -10,9 +10,16 @@
         <result column="title" property="title"/>
         <result column="writer" property="writer"/>
         <result column="content" property="content"/>
-        <result column="create_dt" property="createDt"/>
+        <result column="create_dt" property="createDate"/>
         <result column="view_cnt" property="viewCnt"/>
     </resultMap>
+
+    <select id="getAllCount" resultType="int">
+        select
+            count(*)
+        from
+            board
+    </select>
 
     <select id="selectAll" resultMap="board">
         select
@@ -21,11 +28,29 @@
             board
     </select>
 
+    <select id="getById" parameterType="long" resultMap="board">
+    SELECT
+        *
+    FROM
+        board
+    <where>
+        id = #{value}
+    </where>
+    </select>
+
     <insert id="insert" parameterType="pagingExam.demo.domain.Board" >
         INSERT INTO
-            BOARD(TITLE ,WRITER ,CONTENT ,create_dt, VIEW_CNT)
-        VALUES(#{title},#{writer},#{content}, #{createDt}, 0)
+            BOARD(TITLE ,WRITER ,CONTENT ,CREATE_DT, VIEW_CNT)
+        VALUES(#{title},#{writer},#{content}, #{createDate}, 0)
     </insert>
 
+    <update id="updateById">
+
+    </update>
+
+
+    <delete id="deleteById">
+
+    </delete>
 
 </mapper>

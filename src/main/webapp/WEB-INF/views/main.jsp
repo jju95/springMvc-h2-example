@@ -8,14 +8,13 @@
     <h2>main</h2>
     <div>
         <span>
-            게시판
             <p>
-                <a href="./board">바로가기</a>
+                <a href="/board/list/1">enter</a>
             </p>
         </span>
         <span>
 
         </span>
-≈    </div>
+    </div>
 </body>
 </html>
